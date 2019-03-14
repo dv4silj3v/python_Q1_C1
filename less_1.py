@@ -1,5 +1,3 @@
-import random
-
 # 1.
 number = int(input("Please enter the 3-digit number: "))
 if len(str(number)) == 3:
