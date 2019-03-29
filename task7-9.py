@@ -37,13 +37,14 @@ for line in matrix:
 # Let's transposition matrix to work with rows
 trans_matrix = list(map(list, zip(*matrix)))
 minnum_column_list = []
-minnum_column = 100
 maxnum_of_minnum = 0
 for row in trans_matrix:
+    minnum_column = 100000
     for elem in row:
         if elem < minnum_column:
             minnum_column = elem
     minnum_column_list.append(minnum_column)
+print(minnum_column_list)
 for item in minnum_column_list:
     if item > maxnum_of_minnum:
         maxnum_of_minnum = item
