@@ -60,7 +60,7 @@ def isqrt(n):
     return x
 
 
-# Function isprime(n) will check if integer is a prime number
+# Function isprime(n) will check if integer is a prime number using brute force
 
 def isprime(n):
     num_is_prime = True
@@ -72,26 +72,41 @@ def isprime(n):
                 num_is_prime = False
     return num_is_prime
 
+# Function find_prime_num will create a list of prime numbers and break once it gets to the right one
 
-i = int(input("Enter the i-prime number needed: "))
-
-prime_num_list = []
-
-for j in range(1, 1000000):
-    if isprime(j):
-        prime_num_list.append(j)
-    if len(prime_num_list) == i:
-        print(prime_num_list[-1])
-        break
-
+def find_prime_num(i):
+    prime_num_list = []
+    for j in range(2, 1000000):
+        if isprime(j):
+            prime_num_list.append(j)
+        if len(prime_num_list) == i:
+            print(prime_num_list)
+            break
 
 
+statement_3 = "find_prime_num(1000)"
+setup_3 = "from __main__ import find_prime_num"
+print(timeit.timeit(statement_3, setup=setup_3, number=10))
 
 
+# Function will use Sieve of Eratosthenes to find the i-prime number
+
+def prime_sieve(i):
+    sieve_num_list = []
+    multiples_list = []
+    for j in range(2, 10000):
+        if j not in multiples_list:
+            sieve_num_list.append(j)
+            if len(sieve_num_list) == i:
+                break
+            for k in range(j * j, 100000, j):
+                multiples_list.append(k)
 
 
+statement_4 = "prime_sieve(1000)"
+setup_4 = "from __main__ import prime_sieve"
+print(timeit.timeit(statement_4, setup=setup_4, number=10))
 
-
-
-
-
+# Нахождение простого числа с помощью Решето Эратосфена значительно увеличивает время поиска ~ в 100 раз :)
+# 0,45 секунд против 58 секунд.
+# Возможно это связано с неверной реализацией алгоритма в моем конкретном примере.
