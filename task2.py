@@ -64,5 +64,9 @@ print(word)
 print(sorted_dict_word)
 print(codes)
 
-
+### Sample output:
+### Enter a desired sentence for encoding: Big Badda Boom
+### Big Badda Boom
+### [(1, 'g'), (1, 'i'), (1, 'm'), (2, ' '), (2, 'a'), (2, 'd'), (2, 'o'), (3, 'B')]
+### {'B': '00', 'i': '1111', 'd': '101', ' ': '011', 'o': '110', 'm': '010', 'a': '100', 'g': '1110'}
 
